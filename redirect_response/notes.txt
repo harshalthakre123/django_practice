@@ -1,0 +1,57 @@
+redirect
+
+redirect(f'/index/?name={name}&city={city}') to send data in url.
+
+
+
+templates cutting:-
+
+for common code reusability (header and footer)
+we use a separate html file for common files so in jango we have to use dtl and additional tags.
+
+#======SOME DTL TAGS=================================================================
+
+#without closing tags
+syntax {%(Singlespace) tag_name (singlespace%)}
+
+1. {% extends%}--{% extends 'common.html' %}-------> position-(top of the file)
+
+2. {% include %}
+
+3. {% load %} position-2nd top
+
+4. {% url %}
+
+5. {% csrf_token %}---->to check user authentication (cross site  fraud) 
+
+6. {% empty %}
+
+#closing tags
+
+1.{% block BLOCKNAME %}---->the content we have to override we have to use block tag_name 
+{% endblock%}--end tag 
+
+2. {% if condition %}  {% endif %}
+
+3. {% if condition1 %}
+{% elif condition2 %}
+{% elif condition3 %}
+{% elif condition4 %}
+{% else %}
+{% endif %}
+
+4. {% for i in collection %}
+
+{% empty %}-->for no collection 
+
+{% endfor %}
+
+
+WE HAVE TO CREATE A BASE OR COMMON.HTML FILE FOR COMMON CONTENT.
+
+
+
+
+
+
+
