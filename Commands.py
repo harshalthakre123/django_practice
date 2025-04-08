@@ -26,7 +26,7 @@
 
 
 
-# for dom in django.
+# for dom in django or to run projects(App).
 
 # Now in settings inside installed Apps register your app.
 # add---->"App name"

@@ -31,7 +31,8 @@ syntax {%(Singlespace) tag_name (singlespace%)}
 1.{% block BLOCKNAME %}---->the content we have to override we have to use block tag_name 
 {% endblock%}--end tag 
 
-2. {% if condition %}  {% endif %}
+2. {% if condition %}  
+{% endif %}
 
 3. {% if condition1 %}
 {% elif condition2 %}
@@ -48,7 +49,12 @@ syntax {%(Singlespace) tag_name (singlespace%)}
 
 
 WE HAVE TO CREATE A BASE OR COMMON.HTML FILE FOR COMMON CONTENT.
+create h common.html in templates and home.html
+using bootstrap for contents.
+install django template
 
+url pattern in anchor tags 
+in href="{% url 'home' %}"> Home </a> use single quotes in this otherwise gives error
 
 
 
