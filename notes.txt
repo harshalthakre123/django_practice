@@ -22,7 +22,7 @@ syntax {%(Singlespace) tag_name (singlespace%)}
 
 4. {% url %}
 
-5. {% csrf_token %}---->to check user authentication (cross site  fraud) 
+5. {% csrf_token %}---->to check user authentication (cross site request frousary) fraud detection  
 
 6. {% empty %}
 
@@ -57,7 +57,7 @@ url pattern in anchor tags
 in href="{% url 'home' %}"> Home </a> use single quotes in this otherwise gives error
 
 
-
+request.meta is used for cyber crime
 
 
 

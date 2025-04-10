@@ -16,6 +16,14 @@ def about(request):
 def reg(request):
     return render(request, "reg.html")
 
+def registerdata(request):
+    print(request.method)
+    print(request.POST)
+    print(request.GET)
+    print(request.FILES)
+    print(request.COOKIES)
+    print(request.META)
+    print(request.SETTINGS)
 def login(request):
     return render(request, "login.html")
 
