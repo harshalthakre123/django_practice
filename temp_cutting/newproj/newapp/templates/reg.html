@@ -10,24 +10,29 @@ home
 {% endblock %}
 
 {% block content %}
+{{msg}}
+<br>
+
+{{data}}
+<br>
 <form id="form" action="{% url 'registerdata' %}" method="post" enctype="multipart/form-data">
 
     {% csrf_token %}
    <label for="username">Name:</label>
-   <input type="text" name="username" placeholder="Enter your name">
+   <input type="text" name="username" placeholder="Enter your name" value="{{data.username}}">
    <br> 
    <label for="email">Email:</label>
-   <input type="email" name="email" placeholder="Enter your email">
+   <input type="email" name="email" placeholder="Enter your email" value="{{data.email}}">
    <br>
    <label for="detail">Description:</label>
-   <textarea name="detail" cols="20" rows="5"></textarea>
+   <textarea name="detail" cols="20" rows="5" value="{{data.detail}}"></textarea>
    <br>
    <label for="phone">Contact:</label>
-   <input type="tel" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="Enter your phone number">
+   <input type="tel" name="phone" pattern="[0-9]{10}" maxlength="10" placeholder="Enter your phone number" value="{{data.phone}}">
    <br>
    <br>
    <label for="dob">DOB:</label>
-   <input type="date" name="dob" min="2007-01-01">
+   <input type="date" name="dob" min="2007-01-01" value="{{data.dob}}">
    <br>
    <br>
    <label for="subscribe">Education:</label>
@@ -41,11 +46,11 @@ home
    <input type="radio" name="gender" value="female"> Female
    <br>
    <label for="profile-pic">Image:</label>
-   <input type="file" name="profile-pic" accept=".jpeg, .png, .jpg, .heic" >
+   <input type="file" name="profile-pic" accept=".jpeg, .png, .jpg, .heic" value="{{data.image}}">
    <br>
 
    <label for="resume">Resume:</label>
-   <input type="file" name="resume" accept=".pdf, .doc" >
+   <input type="file" name="resume" accept=".pdf, .doc" value="{{data.file}}">
    <br>
    <label for="password">Password:</label>
    <input type="password" name="password">

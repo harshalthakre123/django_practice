@@ -5,5 +5,21 @@ login
 {% endblock %}
 
 {% block content %}
-Login content
+{{msg}}
+<br>
+
+{{data}}
+<br>
+<form id="form" action="{% url 'logindata' %}" method="post">
+
+    {% csrf_token %} 
+   <label for="email">Email:</label>
+   <input type="email" name="email" placeholder="Enter your email" value="">
+   <br>
+   <label for="password">Password:</label>
+   <input type="password" name="password">
+   <br>
+   <input type="submit" value="login">
+
+</form>
 {% endblock %}
