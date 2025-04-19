@@ -49,7 +49,7 @@ def registerdata(request):
         if password==cpassword:
             Student.objects.create(stu_name=username, stu_email=email, stu_dis=detail, stu_contact=phone, stu_dob=dob, stu_quali=subscribe, stu_gender=gender, stu_image=image, stu_file=file,stu_password=password)
             msg="Registration Successful!"
-            return render (request, 'login.html', {'msg':msg})
+            return render(request, 'login.html', {'msg':msg})
         else:
             msg="Password and Confirm Password not matched"
             userdata={
@@ -90,14 +90,16 @@ def logindata(request):
             print(userdata.stu_email)
             p1=userdata.stu_password
             if p==p1:
-                return render(request, 'dashboard.html', {'userdata':userdata})
+                info={"id":userdata.id , "email":userdata.stu_email, "name":userdata.stu_name, "dob":userdata.stu_dob, "qualification":userdata.stu_quali , "phone":userdata.stu_contact, "password":userdata.stu_password, "file":userdata.stu_image}
+                return render(request, 'dashboard.html', {"info":info, 'userdata':userdata})
+                
                 
             else:
                 pmsg="password not Matched"
-                return render(request, 'login.html', {"email":e})
+                return render(request, 'login.html', {"pmsg":pmsg, "email":e})
         else:
             msg="email not Exist"
-            return render(request, 'register.html', {"msg":msg})
+            return render(request, 'login.html', {"msg":msg})
     else:
         return render(request, 'login.html')
     
