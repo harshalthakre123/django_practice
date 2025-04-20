@@ -24,7 +24,7 @@ def registerdata(request):
     # print(request.FILES)
     # print(request.COOKIES)
     # print(request.META)
-    # print(request.SETTINGS)
+    # print(request.SETTING)
     username= request.POST.get('username')
     email= request.POST.get('email')
     detail= request.POST.get('detail')
@@ -32,8 +32,8 @@ def registerdata(request):
     dob= request.POST.get('dob')
     subscribe= request.POST.getlist('subscribe')
     gender= request.POST.get('gender')
-    image= request.POST.get('image')
-    file= request.POST.get('file')
+    image= request.FILES.get('profile-pic')
+    file= request.FILES.get('resume')
     password= request.POST.get('password')
     cpassword= request.POST.get('cpassword')
     
@@ -47,7 +47,7 @@ def registerdata(request):
         return render (request, 'reg.html', {'msg':msg})
     else :
         if password==cpassword:
-            Student.objects.create(stu_name=username, stu_email=email, stu_dis=detail, stu_contact=phone, stu_dob=dob, stu_quali=subscribe, stu_gender=gender, stu_image=image, stu_file=file,stu_password=password)
+            Student.objects.create(stu_name=username, stu_email=email, stu_dis=detail, stu_contact=phone, stu_dob=dob, stu_quali=subscribe, stu_gender=gender, stu_image=image, stu_file=file, stu_password=password)
             msg="Registration Successful!"
             return render(request, 'login.html', {'msg':msg})
         else:
@@ -90,8 +90,7 @@ def logindata(request):
             print(userdata.stu_email)
             p1=userdata.stu_password
             if p==p1:
-                info={"id":userdata.id , "email":userdata.stu_email, "name":userdata.stu_name, "dob":userdata.stu_dob, "qualification":userdata.stu_quali , "phone":userdata.stu_contact, "password":userdata.stu_password, "file":userdata.stu_image}
-                return render(request, 'dashboard.html', {"info":info, 'userdata':userdata})
+                return render(request, 'dashboard.html', {'userdata':userdata})
                 
                 
             else:

@@ -1,0 +1,68 @@
+{% extends "common.html" %}
+
+
+
+{% block css %}
+
+{% endblock %}
+
+
+
+{% block title %}         
+Register
+{% endblock %}
+
+
+
+{% block content %}
+
+<form action="{% url 'registerdata' %}">
+    {% csrf_token %}
+    <h3>Registration form</h3>
+    <label for="name">Name:</label>
+    <input type="text" placeholder="Enter your name:" name="name">
+    <br>
+    <label for="email">Email:</label>
+    <input type="email" placeholder="abc123@gmail.com:" name="email">
+    <br>
+    <label for="age">Age:</label>
+    <input type="number" placeholder="Enter your age:" name="age">
+    <br>
+    <label for="dob">Date of Birth:</label>
+    <input type="date" name="dob" min="1975-01-01" name="dob">
+    <br>
+    <label for="gender">Gender:</label>
+    <input type="radio" value="male" name="gender">Male
+    <input type="radio" value="female" name="gender">Female
+    
+    <br>
+    <label for="phone">Phone:</label>
+    <input type="tel" name="phone" pattern="[0-9]{10}" placeholder="Enter your phone number" maxlength="10">
+    <br>
+    <label for="qualifications">Qualifications:</label>
+    <input type="checkbox" name="qualification" value="10th">10th
+    <input type="checkbox" name="qualification" value="12th">12th
+    <input type="checkbox" name="qualification" value="diploma">Diploma
+    <input type="checkbox" name="qualification" value="btech">B.Tech
+    <input type="checkbox" name="qualification" value="mtech">M.Tech
+    <input type="checkbox" name="qualification" value="phd">Phd
+    <br>
+    <label for="remarks">Remarks:</label>
+    <br>
+    <textarea name="remarks" id="remarks" cols="25" rows="5" placeholder="write your remark here."></textarea>
+    <br>
+    <label for="profile_img">Upload Image:</label>
+    <input type="file" name="profile_img" accept=".jpeg, .jpg, .png, .heic,">
+    <br>
+    <label for="aadhar">Upload Aadhar</label>
+    <input type="file" name="aadhar" accept=".doc, .pdf">
+    <br>
+    <label for="password">Password:</label>
+    <input type="password" name="password" maxlength="15" placeholder="Enter Password">
+    <br>
+    <label for="password">Cpassword:</label>
+    <input type="password" name="cpassword" maxlength="15" placeholder="Confirm Password">
+    <br>
+    <input type="submit" name="submit">
+</form>
+{% endblock %}

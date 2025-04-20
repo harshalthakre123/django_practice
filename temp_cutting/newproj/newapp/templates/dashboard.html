@@ -9,8 +9,18 @@ DashBoard
 {% block content %}
 
 DashBoard
+<br/>
+
+<br/>
+name: {{userdata.stu_name}}
 <br>
-{{info}}
+image: {{userdata.stu_image}}
 <br>
-{{userdata}}
+<img src="{{userdata.stu_image.url}}" alt="" srcset="">
+<a href="{{userdata.stu_image.url}}" target="_blank" download>Download Img</a>
+<br/>
+document: {{userdata.stu_file}}
+<br>
+<a href="{{userdata.stu_file.url}}" target="_blank" download>Download FILE</a>
+<br/>
 {% endblock %}

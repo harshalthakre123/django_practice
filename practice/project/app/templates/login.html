@@ -1,0 +1,36 @@
+{% extends "common.html" %}
+
+
+
+{% block css %}
+
+{% endblock %}
+
+
+
+{% block title %}         
+Login
+{% endblock %}
+
+
+
+{% block content %}
+<form action="{% url 'logindata' %}">
+    {% csrf_token %}
+    <h3>Login Page</h3>
+    <div class="form-floating mb-3">
+        <input type="email" class="form-control" id="floatingInput" placeholder="name123@example.com">
+        <label for="email">Email address</label>
+      </div>
+      <div class="form-floating">
+        <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+        <label for="password">Password</label>
+      </div>
+
+    <button type="submit" class="btn btn-success">Success</button>
+
+    <p>Don't have account? <a href="#">Register now</a></p>
+
+</form>
+
+{% endblock %}
