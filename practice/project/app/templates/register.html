@@ -16,11 +16,11 @@ Register
 
 {% block content %}
 
-<form action="{% url 'registerdata' %}">
+<form action="{% url 'registerdata' %}" method="post" enctype="multipart/form-data">
     {% csrf_token %}
     <h3>Registration form</h3>
-    <label for="name">Name:</label>
-    <input type="text" placeholder="Enter your name:" name="name">
+    <label for="username">Name:</label>
+    <input type="text" placeholder="Enter your name:" name="username">
     <br>
     <label for="email">Email:</label>
     <input type="email" placeholder="abc123@gmail.com:" name="email">

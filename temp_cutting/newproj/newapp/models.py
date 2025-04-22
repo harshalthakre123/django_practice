@@ -14,6 +14,9 @@ class Student(models.Model):
     stu_file= models.FileField(upload_to='file/')
     stu_password= models.CharField(max_length=15)
 
+
+class User()
+
      
 
    

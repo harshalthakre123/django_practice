@@ -24,7 +24,7 @@ def registerdata(request):
     # print(request.FILES)
     # print(request.COOKIES)
     # print(request.META)
-    # print(request.SETTING)
+    ## print(request.SETTING)
     username= request.POST.get('username')
     email= request.POST.get('email')
     detail= request.POST.get('detail')
@@ -67,16 +67,7 @@ def registerdata(request):
 
 
 
-    
-
-    
-
-
-
 def login(request):
-#     if request.method=="POST":
-#         email=request.POST.get("e.mail")
-#         password=request.POST.get("password")
     return render(request, "login.html")
 
 def logindata(request):
