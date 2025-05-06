@@ -15,7 +15,7 @@ class Student(models.Model):
     stu_password= models.CharField(max_length=15)
 
 
-class User()
+
 
      
 
