@@ -1,10 +1,12 @@
 from django.shortcuts import render
-from .models import User, Aadhar
+from .models import User, Aadhar, Department, Student
 
 # Create your views here.
 
 
-def Student(request):
+# One to One
+
+def user(request):
     data=User.objects.all()
     print(data)
     print()
@@ -33,3 +35,48 @@ def aadhar(request):
     # print(data2.aadhar)
     print(data2.user_info.aadhar_no.aadhar)
     print(data2.user_info.aadhar_no.created_by)
+
+
+#one to many
+
+def student(request):
+    data=Student.objects.all()
+    print(data)
+    print(data.values())
+    print(data.values_list())
+
+    # # Forward data access(from stu to depart)
+    stu_data= Student.objects.get(stu_name="Nikhil Patel")
+    print(stu_data.id)
+    print(stu_data.stu_name)
+    print(stu_data.stu_email)
+
+    # x=stu_data.stu_dep
+
+    # print(x.dep_name)
+    # print(x.dep_des)
+    # print(x.dep_hod)
+
+    # print(stu_data.stu_dep.dep_name)
+    # print(stu_data.stu_dep.dep_des)
+    # print(stu_data.stu_dep.dep_hod)
+
+# def department(request):
+#     data=Department.objects.all()
+#     print(data)
+#     print(data.values())
+#     print(data.values_list())
+
+#     # Forward data access(from stu to depart)
+#     stu_data= Department.objects.get(id=1)
+#     print(dep_data.id)
+#     print(dep_data.dep_name)
+#     print(dep_data.dep_des)
+#     print(dep_data.dep_hod)
+
+#     print((dep_data.depart.all()).count())
+
+#     x=dep_data.depart.all()
+
+
+

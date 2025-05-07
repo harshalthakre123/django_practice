@@ -20,6 +20,8 @@ from myapp import views
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("Student/", views.Student, name="Student"),
-    path("aadhar/", views.aadhar, name="aadhar")
+    path("user/", views.user, name="user"),
+    path("aadhar/", views.aadhar, name="aadhar"),
+    path("student/", views.student, name="student"),
+    # path("department/", views.department, name="department"),
 ]
