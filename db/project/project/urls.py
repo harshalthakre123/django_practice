@@ -23,5 +23,7 @@ urlpatterns = [
     path("user/", views.user, name="user"),
     path("aadhar/", views.aadhar, name="aadhar"),
     path("student/", views.student, name="student"),
-    # path("department/", views.department, name="department"),
+    path("department/", views.department, name="department"),
+    path("vehicle/", views.vehicle, name="vehicle"),
+    path("fuel/", views.fuel, name="fuel"),
 ]

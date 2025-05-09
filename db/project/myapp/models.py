@@ -35,3 +35,22 @@ class Student(models.Model):
     stu_dep=models.ForeignKey(Department, on_delete=models.PROTECT, to_field='dep_name', related_name="depart")
     def __str__(self):
         return self.stu_name
+    
+
+
+# many to many
+
+class Fuel(models.Model):
+    fuel_name=models.CharField(max_length=50, unique=True)
+    def __str__(self):
+        return self.fuel_name
+
+class Vehicle(models.Model):
+    vehicle_name=models.CharField(max_length=50)
+    fuel_type=models.ManyToManyField(Fuel, related_name="Vehicle")
+    def __str__(self):
+        return self.vehicle_name
+    
+
+class Ht(models.Model):
+    name=models.CharField(max_length=50)

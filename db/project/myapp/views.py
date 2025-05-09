@@ -1,7 +1,10 @@
 from django.shortcuts import render
-from .models import User, Aadhar, Department, Student
+from .models import User, Aadhar
+from .models import Department, Student
+from .models import Fuel, Vehicle
 
 # Create your views here.
+
 
 
 # One to One
@@ -37,6 +40,7 @@ def aadhar(request):
     print(data2.user_info.aadhar_no.created_by)
 
 
+
 #one to many
 
 def student(request):
@@ -51,32 +55,65 @@ def student(request):
     print(stu_data.stu_name)
     print(stu_data.stu_email)
 
-    # x=stu_data.stu_dep
+    x=stu_data.stu_dep
 
-    # print(x.dep_name)
-    # print(x.dep_des)
-    # print(x.dep_hod)
+    print(x.dep_name)
+    print(x.dep_des)
+    print(x.dep_hod)
 
     # print(stu_data.stu_dep.dep_name)
     # print(stu_data.stu_dep.dep_des)
     # print(stu_data.stu_dep.dep_hod)
 
-# def department(request):
-#     data=Department.objects.all()
-#     print(data)
-#     print(data.values())
-#     print(data.values_list())
+def department(request):
+    data=Department.objects.all()
+    print(data)
+    print(data.values())
+    print(data.values_list())
 
-#     # Forward data access(from stu to depart)
-#     stu_data= Department.objects.get(id=1)
-#     print(dep_data.id)
-#     print(dep_data.dep_name)
-#     print(dep_data.dep_des)
-#     print(dep_data.dep_hod)
+    # Forward data access(from stu to depart)
+    dep_data= Department.objects.get(id=1)
+    print(dep_data.id)
+    print(dep_data.dep_name)
+    print(dep_data.dep_des)
+    print(dep_data.dep_hod)
 
-#     print((dep_data.depart.all()).count())
+    print((dep_data.depart.all()).count())
 
-#     x=dep_data.depart.all()
+    x=dep_data.depart.all()
+
+    for i in x:
+        print(i.stu_name)
+        print(i.stu_email)
 
 
 
+
+
+# many to many
+
+def vehicle(request):
+    data=Vehicle.objects.all()
+    print(data)
+    print(data.values())
+    print(data.values_list())
+
+    vehicle_details= Vehicle.objects.get(id=1)
+    print(vehicle_details.vehicle_name)
+    x= vehicle_details.fuel_type.all()
+    for i in x:
+        print(i.fuel_name)
+
+
+def fuel(request):
+    data=Fuel.objects.all()
+    print(data)
+    print(data.values())
+    print (data.values_list())
+
+    fuel_data= Fuel.objects.get(id=1)
+
+    x= fuel_data.Vehicle.all()
+
+    for i in x:
+        print(i)
